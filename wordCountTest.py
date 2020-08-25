@@ -54,6 +54,7 @@ with open(inputFname, 'r') as inputFile:
         master[word[0]] = int(word[1])
         words += 1
 
+
 with open(outputFname, 'r') as outputFile:
     lastWord = ""
     for line in outputFile:

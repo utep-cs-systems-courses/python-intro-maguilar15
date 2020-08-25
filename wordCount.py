@@ -47,8 +47,21 @@ def countOccurrences(inputFile:str):
 
         for e in line:
 
-            word = e.split(" ")
-            for w in word:
+            wordList = e.split(" ")
+
+            for idx, e in enumerate(wordList):
+
+                if "-" in e:
+                    del wordList[idx]
+                    cleanWord = e.split("-",2)
+                    wordList.extend(cleanWord)
+                elif "'" in e:
+                    del wordList[idx]
+                    cleanWord = e.split("'",2)
+                    wordList.extend(cleanWord)
+
+            for w in wordList:
+
                 # Case In-Sensitive
                 w = w.lower()
                 # Sanitizing Text
@@ -60,7 +73,6 @@ def countOccurrences(inputFile:str):
                 w = w.replace(":","")
                 w = w.replace("!","")
                 w = w.replace("?","")
-
 
                 if w in storage:
 
