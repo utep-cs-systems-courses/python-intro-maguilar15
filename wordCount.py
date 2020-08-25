@@ -59,6 +59,10 @@ def countOccurrences(inputFile:str):
                     del wordList[idx]
                     cleanWord = e.split("'",2)
                     wordList.extend(cleanWord)
+                elif "\"" in e:
+                    del wordList[idx]
+                    cleanWord = e.split("\"",2)
+                    wordList.extend(cleanWord)
 
             for w in wordList:
 
