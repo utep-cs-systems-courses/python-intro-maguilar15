@@ -1,20 +1,33 @@
+# Author: Manuel Aguilar
+
 import sys
 
-# python FILE input.txt output.txt 
+# python wordCount.py input.txt output.txt
 
 inputFile = sys.argv[1]
 
 outputFile = sys.argv[2]
 
-def main(inputFile:str,outputFile:str):
 
+def main(inputFile:str,outputFile:str):
+    """
+    Main Program.
+    :param inputFile: Text file that will be tallied.
+    :param outputFile: Name of file that will contain the word count results.
+    :return:
+    """
     wordStorage = countOccurrences(inputFile=inputFile)
 
     writeOutputFile(outputFile=outputFile,wordStorage=wordStorage)
 
 
 def writeOutputFile(outputFile:str,wordStorage:dict):
-
+    """
+    Writing word count results to a text file.
+    :param outputFile: Name of text file.
+    :param wordStorage: Dictionary containing all counted words
+    :return: Boolean value indicating success or failure.
+    """
     fileName = open(f"./{outputFile}","w")
 
     with fileName as f:
@@ -30,9 +43,12 @@ def writeOutputFile(outputFile:str,wordStorage:dict):
     return True
 
 
-
 def countOccurrences(inputFile:str):
-
+    """
+    Count word occurrences from given text file.
+    :param inputFile: Name for text file. Accepting only text files.
+    :return: Dictionary containing a tally of all the words in the text file.
+    """
     if ".txt" not in inputFile:
         print("[-] Input file not accepted because of extension")
         exit()
