@@ -1,6 +1,7 @@
 # Author: Manuel Aguilar
 
 import sys
+import re
 
 # python wordCount.py input.txt output.txt
 
@@ -82,17 +83,15 @@ def countOccurrences(inputFile:str):
 
             for w in wordList:
 
+                # Remove numbers
+                w = re.sub('[^A-Za-z0-9]+', '', w)
+
                 # Case In-Sensitive
                 w = w.lower()
                 # Sanitizing Text
                 w = w.rstrip()
                 # Remove Punctuation
-                w = w.replace(".","")
-                w = w.replace(",","")
-                w = w.replace(";","")
-                w = w.replace(":","")
-                w = w.replace("!","")
-                w = w.replace("?","")
+                w = w.replace(".","").replace(",","").replace(";","").replace(":","").replace("!","").replace("?","")
 
                 if w in storage:
 

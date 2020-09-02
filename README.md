@@ -31,7 +31,7 @@ encourage students to use that dialect of Python.
 
 # Assignment 1 
 
-#### Recreate Environment 
+#### Recreate Environment (Python 3.8.5)
 
 ```
 pip install -r requirements.txt 
